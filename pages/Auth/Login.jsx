@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
-import { assets } from '../../src/assets/admin_assets/assets.js';
+import { Navigate, useNavigate } from 'react-router-dom';
+const Login = ({ url }) => {
 
 
-const Login = () => {
-  const [currentState, setCurrentState] = useState('Login');
   const [data, setData] = useState({
-    name: "",
     email: "",
     password: ""
   });
+  const navigate = useNavigate();
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
@@ -20,39 +19,49 @@ const Login = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const url = currentState === 'Login' ? "/api/user/login" : "/api/user/register";
-    
+
     try {
-      const response = await axios.post(url, data);
+      // Log URL and endpoint for verification
+      const response = await axios.post(`${url}/api/user/admin/login`, data);
+
+      // Log response data
+      console.log('Response data:', response.data);
+
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("userType", response.data.userType);
+        localStorage.setItem("userId", response.data.userId);
+        navigate('/dashboard');
       } else {
-        alert(response.data.message);
+        alert(response.data.message); // Show error message if login fails
       }
     } catch (error) {
+      // Log the full error object
       console.error("Error during authentication:", error);
-      alert("An error occurred during authentication.");
+    
+      // Log error response details if available
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+        console.error("Response headers:", error.response.headers);
+      } else if (error.request) {
+        console.error("Request data:", error.request);
+      } else {
+        console.error("Error message:", error.message);
+      }
+    
+      alert("Error during authentication.");
     }
+    
   };
 
   return (
     <div className='login-popup'>
       <form onSubmit={onSubmit} className="login-popup-container">
         <div className="login-popup-title">
-          <h2>{currentState}</h2>
-          {/* <img src={assets.cross_icon} alt=""  /> */}
+          <h2>Login</h2>
         </div>
         <div className="login-popup-inputs">
-          {currentState === 'Register' && (
-            <input
-              type="text"
-              placeholder='Your Name'
-              name='name'
-              onChange={onChangeHandler}
-              value={data.name}
-              required
-            />
-          )}
           <input
             type="email"
             placeholder='Your Email'
@@ -71,17 +80,12 @@ const Login = () => {
           />
         </div>
         <button type='submit'>
-          {currentState === "Register" ? "Create Account" : "Login"}
+          Login
         </button>
         <div className="login-popup-condition">
           <input type="checkbox" name="" id="" required />
           <p>By continuing, I agree to the terms of use & privacy policy</p>
         </div>
-        {currentState === "Login" ? (
-          <p>Don't have an account? <span onClick={() => setCurrentState("Register")}>Sign Up</span></p>
-        ) : (
-          <p>Already have an account? <span onClick={() => setCurrentState("Login")}>Login Here</span></p>
-        )}
       </form>
     </div>
   );
