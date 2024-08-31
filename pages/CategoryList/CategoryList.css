@@ -1,0 +1,32 @@
+.category-lists-format {
+    display: grid;
+    grid-template-columns: 2fr 0.5fr;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid #cacaca;
+    font-size: 13px;
+}
+
+.category-lists-format img {
+    width: 50px; /* If you have images */
+}
+
+.category-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.category-actions .cursor {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .category-lists-format {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    .category-lists-format .title {
+        display: none;
+    }
+}
