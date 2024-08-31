@@ -1,0 +1,33 @@
+.edit {
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #6d6d6d;
+  font-size: 16px;
+}
+
+.edit form {
+  gap: 20px;
+}
+
+.add-category-name {
+  width: max(40%, 280px);
+}
+
+.add-category-name input {
+  padding: 10px;
+}
+
+.add-btn {
+  max-width: 120px;
+  border: none;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.add-btn-container {
+  display: flex;
+  gap: 10px; /* Optional: Adds space between buttons */
+}

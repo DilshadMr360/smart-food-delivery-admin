@@ -10,6 +10,10 @@ import Login from '../pages/Auth/Login';
 import ProtectedRoute from '../components/PrivateRoute'; // Import ProtectedRoute
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Category from '../pages/Category/Category';
+import EditFood from '../pages/EditFood/EditFood';
+import CategoryList from '../pages/CategoryList/CategoryList';
+import EditCategory from '../pages/EditCategory/EditCategory';
 
 const App = () => {
   const location = useLocation(); // Get current location
@@ -39,6 +43,10 @@ const App = () => {
           <Route path="/" element={<Login url={url} />} />
           <Route path="/dashboard" element={<ProtectedRoute element={<AdminDashboard url={url} />} />} />
           <Route path="/add" element={<ProtectedRoute element={<Add url={url} />} />} />
+          <Route path="/edit/:id" element={<ProtectedRoute element={<EditFood url={url} />} />} />
+          <Route path="/category" element={<ProtectedRoute element={<Category url={url} />} />} />
+          <Route path="/category-list" element={<ProtectedRoute element={<CategoryList url={url} />} />} />
+          <Route path="/edit-category/:id" element={<ProtectedRoute element={<EditCategory url={url} />} />} />
           <Route path="/list" element={<ProtectedRoute element={<List url={url} />} />} />
           <Route path="/orders" element={<ProtectedRoute element={<Orders url={url} />} />} />
         </Routes>
