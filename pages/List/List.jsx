@@ -68,7 +68,8 @@ const List = ({url}) => {
           <b>Price</b>
           <b>Action</b>
         </div>
-        {list.map((item, index) => (
+        {list.length > 0 ? (
+        list.map((item, index) => (
           <div key={index} className='list-table-format'>
             <img src={`${url}/images/` + item.image} alt="" />
             <p>{item.name}</p>
@@ -79,7 +80,10 @@ const List = ({url}) => {
               <p onClick={() => editFood(item._id)} className='cursor'>Edit</p>
             </div>
           </div>
-        ))}
+        ))
+        ) :(
+        <p>No Foods found</p>
+        )}
       </div>
     </div>
   );
