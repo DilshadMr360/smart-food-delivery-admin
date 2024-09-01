@@ -1,13 +1,38 @@
-.navbar{
+.navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 8px 4%;
-}
-    .navbar .logo {
-    width: max(5%,80px);
-    }
+    justify-content: space-between; /* Distributes space between logo and content2 */
+  }
+  
+  .logo {
+    width: max(5%, 80px); /* Adjust size as needed */
+  }
+  
+  .content2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligns items to the end (right) */
+  }
+
+  .content2 .content2-text{
+    font-size: 16px;
+    color: black;
     
-    .navbar .profile{
+  }
+  
+  .profile {
     width: 40px;
-}
+    margin-left: 10px; /* Space between profile and other elements */
+  }
+  
+  .user-name {
+    margin-left: 10px; /* Space between name and profile image */
+  }
+  
+  .logout-button {
+    margin-left: 10px; /* Space between profile image and button */
+  }
+
+  
+  

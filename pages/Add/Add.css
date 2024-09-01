@@ -40,3 +40,8 @@ padding: 10px;
     color: white;
     cursor: pointer;
 }
+
+.add-image-upload img {
+  width: 120px; /* Fixed width */
+  height: 80px; /* Fixed height to maintain aspect ratio */
+}

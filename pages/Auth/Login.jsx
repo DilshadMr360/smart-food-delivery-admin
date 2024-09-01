@@ -31,6 +31,7 @@ const Login = ({ url }) => {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("userType", response.data.userType);
         localStorage.setItem("userId", response.data.userId);
+        localStorage.setItem("userName", response.data.name); 
         navigate('/dashboard');
       } else {
         alert(response.data.message); // Show error message if login fails
