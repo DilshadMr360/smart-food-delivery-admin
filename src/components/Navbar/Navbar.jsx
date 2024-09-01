@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import { assets } from '../../assets/admin_assets/assets.js';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const navigate = useNavigate(); // Hook for navigation
@@ -14,6 +15,7 @@ const Navbar = () => {
     localStorage.removeItem('userId');
     localStorage.removeItem('userName'); 
     // Redirect to the home page
+    toast.success("Logout successfully");
     navigate('/');
   };
 

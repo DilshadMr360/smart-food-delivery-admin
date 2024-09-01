@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 import { Navigate, useNavigate } from 'react-router-dom';
-const Login = ({ url }) => {
+import { toast } from 'react-toastify';
 
+const Login = ({ url }) => {
 
   const [data, setData] = useState({
     email: "",
@@ -32,6 +33,7 @@ const Login = ({ url }) => {
         localStorage.setItem("userType", response.data.userType);
         localStorage.setItem("userId", response.data.userId);
         localStorage.setItem("userName", response.data.name); 
+        toast.success("Login successfully");
         navigate('/dashboard');
       } else {
         alert(response.data.message); // Show error message if login fails
