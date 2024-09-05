@@ -9,6 +9,7 @@ const EditFood = ({ url }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [quantity, setQuantity] = useState('');
   const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -24,6 +25,7 @@ const EditFood = ({ url }) => {
           setName(response.data.data.name);
           setDescription(response.data.data.description);
           setPrice(response.data.data.price);
+          setQuantity(response.data.data.quantity);
           setCategory(response.data.data.category);
         } else {
           toast.error('Error fetching food details');
@@ -58,6 +60,7 @@ const EditFood = ({ url }) => {
     formData.append('name', name);
     formData.append('description', description);
     formData.append('price', price);
+    formData.append('quantity', quantity);
     formData.append('category', category);
     if (image) {
       formData.append('image', image);
@@ -142,6 +145,17 @@ const EditFood = ({ url }) => {
                 type="number"
                 name="price"
                 placeholder='$20'
+                required
+              />
+            </div>
+            <div className="edit-price flex-col">
+              <p>Product Quantity</p>
+              <input
+                onChange={(e) => setQuantity(e.target.value)}
+                value={quantity}
+                type="number"
+                name="quantity"
+                placeholder='20'
                 required
               />
             </div>

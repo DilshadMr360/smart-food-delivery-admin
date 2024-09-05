@@ -49,7 +49,7 @@ const EditCategory = ({url}) => {
             toast.success('Category item updated successfully');
             navigate('/category-list'); // Redirect to the list page
         } else {
-            toast.error('Error updating food item');
+            toast.error('Error updating Category item');
         }
     } catch (error) {
         toast.error('Error updating Category item');
