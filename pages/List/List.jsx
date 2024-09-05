@@ -34,19 +34,7 @@ const List = ({url}) => {
 
   }
 
-  // const editFood = async (foodId) => {
-  //   try {
-  //     const response = await axios.get(`${url}/api/food/edit/${foodId}`);
-  //     if (response.data.success) {
-  //       console.log('Food details:', response.data.data);
-  //       navigate(`/edit/${foodId}`); // Navigate to the edit page
-  //     } else {
-  //       toast.error('Error fetching food details');
-  //     }
-  //   } catch (error) {
-  //     toast.error('Error fetching food details');
-  //   }
-  // };
+
   const editFood = (foodId) => {
     console.log('Editing food item with ID:', foodId); // Log the food ID
     navigate(`/edit/${foodId}`); // Navigate to the edit page with the food ID
@@ -64,6 +52,7 @@ const List = ({url}) => {
         <div className="list-table-format title">
           <b>Image</b>
           <b>Name</b>
+          <b>Quantity</b>
           <b>Category</b>
           <b>Price</b>
           <b>Action</b>
@@ -73,6 +62,7 @@ const List = ({url}) => {
           <div key={index} className='list-table-format'>
             <img src={`${url}/images/` + item.image} alt="" />
             <p>{item.name}</p>
+            <p>{item.quantity}</p>
             <p>{item.category}</p>
             <p>${item.price}</p>
             <div className='actions'>
