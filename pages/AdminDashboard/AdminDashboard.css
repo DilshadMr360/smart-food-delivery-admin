@@ -1,8 +1,46 @@
-.admin-title{
-    width: 70%;
-    margin-left: max(5vw,25px);
-    margin-top: 50px;
-    color: black;
-    font-size: 30px;
-    font: bold;
-    }
+.admin-title {
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 20px;
+  color: black;
+  font-size: 20px; /* Reduced the font size */
+  font-weight: bold;
+  text-align: center; /* Centered the title */
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column; /* Default to column for mobile */
+  align-items: center;
+  margin-top: 40px;
+}
+
+.chart-container {
+  width: 300px; /* Adjust width */
+  height: 300px; /* Adjust height */
+  margin-bottom: 20px; /* Add some space between chart and counts on mobile */
+}
+
+.counts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 18px; /* Adjusted font size */
+  margin: 10px 0; /* Adjusted margin for spacing */
+}
+
+/* Media query for medium and large screens */
+@media (min-width: 768px) {
+  .dashboard-content {
+    flex-direction: row; /* Switch to row for medium and large screens */
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .counts-container {
+    align-items: flex-start; /* Align text to start on larger screens */
+  }
+}
