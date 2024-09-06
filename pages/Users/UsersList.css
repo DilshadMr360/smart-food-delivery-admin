@@ -1,0 +1,46 @@
+.user-list {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  .list-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .user-list-table-format {
+    display: grid;
+    grid-template-columns:  2fr 3fr 2fr 2fr; /* Define grid layout for columns */
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .title {
+    font-weight: bold;
+  }
+  
+  .user-list-table-format b, .user-list-table-format p {
+    margin: 0;
+    text-align: left;
+  }
+  
+  .user-list-table-format p {
+    padding: 5px 0;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start; /* Aligns the action buttons to the left */
+    align-items: center; /* Ensures that the X and Edit buttons are vertically aligned */
+  }
+  
+  .cursor {
+    cursor: pointer;
+    color: red;
+  }
+  

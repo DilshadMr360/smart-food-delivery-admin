@@ -14,6 +14,7 @@ import Category from '../pages/Category/Category';
 import EditFood from '../pages/EditFood/EditFood';
 import CategoryList from '../pages/CategoryList/CategoryList';
 import EditCategory from '../pages/EditCategory/EditCategory';
+import UsersList from '../pages/Users/UsersList';
 
 const App = () => {
   const location = useLocation(); // Get current location
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/edit-category/:id" element={<ProtectedRoute element={<EditCategory url={url} />} />} />
           <Route path="/list" element={<ProtectedRoute element={<List url={url} />} />} />
           <Route path="/orders" element={<ProtectedRoute element={<Orders url={url} />} />} />
+          <Route path="/users-list" element={<ProtectedRoute element={<UsersList url={url} />} />} />
         </Routes>
       </div>
     </div>
